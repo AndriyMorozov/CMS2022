@@ -15,6 +15,7 @@ class NewsController extends Controller
     public function viewAction() {
         return $this->render();
     }
+    // http://cms/news/index
     public function indexAction() {
         return $this->render(null, [
             'title' => 'Список новин',
