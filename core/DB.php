@@ -2,6 +2,9 @@
 
 namespace core;
 
+/**
+ * Клас для виконання запитів до БД
+ */
 class DB
 {
     protected $pdo;
@@ -9,7 +12,15 @@ class DB
         $this->pdo = new \PDO("mysql: host={$hostname};dbname={$database}",
             $login, $password);
     }
-    public function select($tableName, $fieldsList = "*",
+
+    /**
+     * Виконання запиту на отримання даних з вказаної таблиці БД
+     * @param string $tableName Назва таблиці бази даних
+     * @param string|array $fieldsList Список полів
+     * @param array|null $conditionArray Асоціативний масив з умовою для пошуку
+     * @return array|false
+     */
+    public function select(string $tableName, $fieldsList = "*",
                            $conditionArray = null) {
         if (is_string($fieldsList))
             $fieldsListString = $fieldsList;

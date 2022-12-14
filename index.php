@@ -3,6 +3,7 @@
 use core\DB;
 
 include('config/database.php');
+include('config/params.php');
 
 spl_autoload_register(function ($className) {
     $path = $className . '.php';

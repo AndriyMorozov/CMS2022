@@ -17,6 +17,7 @@ class NewsController extends Controller
     }
     // http://cms/news/index
     public function indexAction() {
+
         return $this->render(null, [
             'title' => 'Список новин',
             'text' => 'Просто текст'
