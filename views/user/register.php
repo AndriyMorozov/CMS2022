@@ -3,6 +3,7 @@
 /** @var array $model */
 
 core\Core::getInstance()->pageParams['title'] = 'Реєстрація на сайті';
+//core\Core::getInstance()->pageParams['headerTitle'] = 'Реєстрація';
 
 ?>
 <h1 class="h3 mb-3 fw-normal text-center">Реєстрація нового користувача</h1>

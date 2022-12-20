@@ -11,8 +11,10 @@ class Category
 
     public static function addCategory($name, $photoPath)
     {
-        $fileName = '124873249238742371231.jpg';
-        $newPath = "files/category/{$fileName}";
+        do {
+            $fileName = uniqid() . '.jpg';
+            $newPath = "files/category/{$fileName}";
+        } while (file_exists($newPath));
         move_uploaded_file($photoPath, $newPath);
         Core::getInstance()->db->insert(self::$tableName, [
             'name' => $name,

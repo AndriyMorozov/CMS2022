@@ -1,6 +1,7 @@
 <?php
 /** @var string $title */
 /** @var string $content */
+/** @var string $headerTitle */
 
 /** @var string $siteName */
 
@@ -60,6 +61,7 @@ else
                         <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
                             <use xlink:href="#bootstrap"/>
                         </svg>
+<!--     <?//=$headerTitle ?>                   -->
                     </a>
 
                     <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
@@ -119,9 +121,10 @@ else
                 <div class="text-end">
                     <?php if (User::isUserAuthenticated()) : ?>
                         <a href="/user/logout" class="btn btn-light text-dark me-2">Вийти</a>
-                    <?php else: ?>
+                    <?php elseif(true): ?>
                         <a href="/user/login" class="btn btn-light text-dark me-2">Увійти</a>
                         <a href="/user/register" class="btn btn-primary">Реєстрація</a>
+                    <?php else :  ?>
                     <?php endif; ?>
                 </div>
             </div>

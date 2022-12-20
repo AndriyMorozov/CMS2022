@@ -1,5 +1,6 @@
 <?php
 $pageParams = [
     'siteName'      => 'Інтернет-магазин',
-    'title'         => 'Головна сторінка'
+    'title'         => 'Головна сторінка',
+//    'headerTitle'   => ''
 ];
