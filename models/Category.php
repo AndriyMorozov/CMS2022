@@ -22,9 +22,27 @@ class Category
         ]);
     }
 
+    public static function changePhoto($id, $newPhoto)
+    {
+        $row = self::getCategoryById($id);
+        $photoPath = 'files/category/' . $row['photo'];
+        if (is_file($photoPath))
+            unlink($photoPath);
+        do {
+            $fileName = uniqid() . '.jpg';
+            $newPath = "files/category/{$fileName}";
+        } while (file_exists($newPath));
+        move_uploaded_file($newPhoto, $newPath);
+        Core::getInstance()->db->update(self::$tableName, [
+            'photo' => $fileName
+        ], [
+            'id' => $id
+        ]);
+    }
+
     public static function getCategoryById($id)
     {
-        $rows = Core::getInstance()->db->select(self::$tableName, [
+        $rows = Core::getInstance()->db->select(self::$tableName, '*', [
             'id' => $id
         ]);
         if (!empty($rows))
@@ -49,7 +67,9 @@ class Category
             'id' => $id
         ]);
     }
-    public static function getCategories() {
+
+    public static function getCategories()
+    {
         $rows = Core::getInstance()->db->select(self::$tableName);
         return $rows;
     }
